@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Request Details</title>
+</head>
+<body>
+    <h1>Service Request Details</h1>
+    <p><strong>Type:</strong> {{ result.request_type }}</p>
+    <p><strong>Description:</strong> {{ result.description }}</p>
+    <p><strong>Status:</strong> {{ result.status }}</p>
+    <p><strong>Submitted At:</strong> {{ result.created_at }}</p>
+    <p><strong>Resolved At:</strong> {{ result.resolved_at|default:"Not Resolved Yet" }}</p>
+    {% if result.attachment %}
+        <p><strong>Attachment:</strong> <a href="{{ result.attachment.url }}">Download</a></p>
+    {% endif %}
+</body>
+</html>
